@@ -1,4 +1,35 @@
+import { useRouter } from "next/router"
+import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
 export default function Register(){
+    const {push} = useRouter()
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const {status} = useSession()
+    useEffect(() => {
+        if(status == "authenticated") push("/")
+    },[status])
+    const onSubmit = () => {
+        fetch("/api/register", {
+            method: "POST",
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                username: username,
+                email: email,
+                password: password
+            })
+        })
+            .then(res => {
+                if(res.ok){
+                    alert("Registrasi berhasil!!")
+                    push("/login")
+                }
+            })
+    }
     return(
         <main>
             {/* Form untuk register */}
@@ -14,38 +45,38 @@ export default function Register(){
                             className="w-[49%] flex flex-col"
                         >
                             <label className="font-dosis text-2xl text-[#023020]" htmlFor="firstName">First Name</label>
-                            <input className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px]" type="text" name="firstName" id="firstName" />
+                            <input value={firstName} onChange={(e) => setFirstName(e.currentTarget.value)} className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px] text-[#023020] p-2" type="text" name="firstName" id="firstName" />
                         </div>
                         <div
                             className="w-[49%] flex flex-col"
                         >
                             <label className="font-dosis text-2xl text-[#023020]" htmlFor="lastName">Last Name</label>
-                            <input className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px]" type="text" name="lastName" id="lastName" />
+                            <input value={lastName} onChange={e => setLastName(e.currentTarget.value)} className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px] text-[#023020] p-2" type="text" name="lastName" id="lastName" />
                         </div>
                     </div>
                     <div
                         className="mt-10 flex flex-col"
                     >
                         <label className="font-dosis text-2xl text-[#023020]" htmlFor="username">Username</label>
-                        <input className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px]" type="text" name="username" id="username" />
+                        <input value={username} onChange={e => setUsername(e.currentTarget.value)} className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px] text-[#023020] p-2" type="text" name="username" id="username" />
                     </div>
                     <div
                         className="mt-10 flex flex-col"
                     >
                         <label className="font-dosis text-2xl text-[#023020]" htmlFor="email">Email</label>
-                        <input className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px]" type="text" name="email" id="email" />
+                        <input value={email} onChange={e => setEmail(e.currentTarget.value)} className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px] text-[#023020] p-2" type="text" name="email" id="email" />
                     </div>
                     <div
                         className="mt-10 flex flex-col"
                     >
                         <label className="font-dosis text-2xl text-[#023020]" htmlFor="password">Password</label>
-                        <input className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px]" type="password" name="password" id="password" />
+                        <input value={password} onChange={e => setPassword(e.currentTarget.value)} className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px] text-[#023020] p-2" type="password" name="password" id="password" />
                     </div>
                     
                     <div
                         className="w-full flex justify-center mt-14"
                     >
-                        <button className="px-5 py-3 bg-[#8A9A5B] rounded-[15px] text-[#F4EBD0] font-bold text-2xl mx-auto">Register</button>
+                        <button onClick={onSubmit} className="px-5 py-3 bg-[#8A9A5B] rounded-[15px] text-[#F4EBD0] font-bold text-2xl mx-auto">Register</button>
                     </div>
                 </div>
             </div>

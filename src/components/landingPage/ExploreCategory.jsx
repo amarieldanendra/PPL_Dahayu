@@ -4,57 +4,103 @@ export default function ExploreCategory(){
     return(
         <div
             className="w-full bg-[#F4EBD0] py-[43px] px-[75px]"
+            id="categories"
         >
             <h2 className="font-dosis font-bold text-[35px] text-[#023020] text-center">Categories you can explore</h2>
             {/* berikut merupakan componen carousel yang digunakan */}
             <div
                 id="carouselCategory"
-                className="relative mt-10"
+                className="relative mt-5"
                 data-te-carousel-init
-                data-te-carousel-slide>
-
-                {/* <!--Carousel items--> */}
-                <div className="relative w-full overflow-hidden after:clear-both after:block after:content-[''] px-[50px]">
-                    {/* <!--First item--> */}
+                data-te-carousel-slide
+            >
+                <div
+                    className="relative w-full overflow-hidden after:clear-both after:block after:content-['']"
+                >
                     <div
-                    className="relative float-left justify-between flex -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                    data-te-carousel-active
-                    data-te-carousel-item
-                    style={{backfaceVisibility: "hidden"}}>
+                        className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                        data-te-carousel-active
+                        data-te-carousel-item
+                        style={{backfaceVisibility: "hidden"}}
+                    >
                         <div
-                            className="relative"
+                            className="w-full flex justify-around my-1 bg-[#F4EBD0] px-5"
                         >
-                            <Image  width={200} height={200} src="/sc1.png" />
-                            <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Facial Cleanser and Facial Wash</p>
-                        </div>
-                        <div
-                            className="relative"
-                        >
-                            <Image  width={200} height={200} src="/sc2.png" />
-                            <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Toner</p>
-                        </div>
-                        <div
-                            className="relative"
-                        >
-                            <Image  width={200} height={200} src="/sc3.png" />
-                            <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Moisturizer</p>
-                        </div>
-                        <div
-                            className="relative"
-                        >
-                            <Image  width={200} height={200} src="/sc4.png" />
-                            <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Sunscreen</p>
-                        </div>
-                        <div
-                            className="relative"
-                        >
-                            <Image  width={200} height={200} src="/sc5.png" />
-                            <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Facial Mask</p>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc1.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Facial Cleanser and Facial Wash</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc2.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Toner</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc3.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Moisturizer</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc4.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Sunscreen</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc5.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Facial Mask</p>
+                            </div>
                         </div>
                     </div>
+                    <div
+                        className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                        data-te-carousel-active
+                        data-te-carousel-item
+                        style={{backfaceVisibility: "hidden"}}
+                    >
+                            <div
+                                className="w-full flex justify-around my-1 bg-[#F4EBD0] px-5"
+                            >
+                                <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc1.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Facial Cleanser and Facial Wash</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc2.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Toner</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc3.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Moisturizer</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc4.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Sunscreen</p>
+                            </div>
+                            <div
+                                className="relative"
+                            >
+                                <Image  width={200} height={200} src="/sc5.png" />
+                                <p className="absolute left-1 bottom-1 text-[12px] font-semibold text-[#023020]">Facial Mask</p>
+                            </div>
+                        </div>
+                    </div>                         
                 </div>
 
-                {/* <!--Carousel controls - prev item--> */}
                 <button
                     className="absolute bottom-0 left-0 top-0 z-[1] flex items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
                     type="button"
@@ -66,12 +112,11 @@ export default function ExploreCategory(){
                         </svg>
                     </span>
                     <span
-                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
                     >
                         Previous
                     </span>
                 </button>
-                {/* <!--Carousel controls - next item--> */}
                 <button
                     className="absolute bottom-0 right-0 top-0 z-[1] flex items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
                     type="button"
@@ -83,12 +128,12 @@ export default function ExploreCategory(){
                         </svg>
                     </span>
                     <span
-                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
                     >
                         Next
                     </span>
                 </button>
-                </div>
+            </div>
         </div>
     )
 }

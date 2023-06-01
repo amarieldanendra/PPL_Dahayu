@@ -1,82 +1,91 @@
 // Komponen best product untuk landing page
 import Image from "next/image"
+import Router from "next/router"
+import { useEffect, useState } from "react"
+import { Carousel, initTE } from "tw-elements"
+
+
 export default function BestProduct(){
+    const [bestProduct, setBestProduct] = useState([])
+    useEffect(() => {
+        fetch("/api")
+            .then(res => res.json())
+            .then(res => {
+                setBestProduct(res)
+            })
+        initTE({ Carousel })
+    }, [])
     return(
         <div
             className="w-full bg-[#F4EBD0] py-[43px] px-[75px]"
+            id="bestProducts"
         >
             <h2 className="font-dosis font-bold text-[35px] text-[#023020] text-center">Best Products of The Month</h2>
             {/* Berikut merupakan carousel yang digunakan */}
-            <div
-                id="carouselBestProduct"
-                className="relative mt-10"
-                data-te-carousel-init
-                data-te-carousel-slide>
 
-                {/* <!--Carousel items--> */}
-                <div className="relative w-full after:clear-both after:block after:content-[''] px-[50px]">
-                    {/* <!--First item--> */}
-                    <div
-                    className="relative float-left justify-evenly flex -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                    data-te-carousel-active
-                    data-te-carousel-item
-                    style={{backfaceVisibility: "hidden"}}>
-                        <div
-                            className="px-[30px] py-[50px] mix-blend-normal shadow-[0_0px_4px_3px_rgba(0,0,0,0.25)] rounded-[15px]"
-                        >
-                            <Image width={300} height={200} src="/azarine.png" />
-                            <div
-                                className="flex justify-between items-center mt-5"
-                            >
-                                <p className="font-dosis font-semibold text-[25px] text-[#023020]">AZARINE</p>
+            <div
+                id="bestProductCarousel"
+                className="relative mt-5"
+                data-te-carousel-init
+                data-te-carousel-slide
+            >
+                <div
+                    className="relative w-full overflow-hidden after:clear-both after:block after:content-['']"
+                >
+                    {
+                        bestProduct && [...Array(Math.ceil(bestProduct.length/2))].map((v,i) => {
+                            return(
                                 <div
-                                    className="px-[14px] py-[7px] flex items-center bg-[#8A9A5B] rounded-full"
+                                    className="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                                    data-te-carousel-active={i==0}
+                                    data-te-carousel-item
+                                    style={{backfaceVisibility: "hidden"}}
+                                    key={"bestProductSlide"+i}
                                 >
-                                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.9321 9.89968C13.7162 10.1088 13.6171 10.4113 13.6662 10.708L14.4071 14.808C14.4696 15.1555 14.3229 15.5072 14.0321 15.708C13.7471 15.9163 13.3679 15.9413 13.0571 15.7747L9.36625 13.8497C9.23791 13.7813 9.09541 13.7447 8.94958 13.7405H8.72375C8.64541 13.7522 8.56875 13.7772 8.49875 13.8155L4.80708 15.7497C4.62458 15.8413 4.41791 15.8738 4.21541 15.8413C3.72208 15.748 3.39291 15.278 3.47375 14.7822L4.21541 10.6822C4.26458 10.383 4.16541 10.0788 3.94958 9.86635L0.940414 6.94968C0.688748 6.70552 0.601248 6.33885 0.716248 6.00802C0.827914 5.67802 1.11291 5.43718 1.45708 5.38302L5.59875 4.78218C5.91375 4.74968 6.19041 4.55802 6.33208 4.27468L8.15708 0.533016C8.20041 0.449683 8.25625 0.373016 8.32375 0.308016L8.39875 0.249683C8.43791 0.206349 8.48291 0.170516 8.53291 0.141349L8.62375 0.108016L8.76541 0.0496826H9.11625C9.42958 0.0821826 9.70541 0.269683 9.84958 0.549683L11.6987 4.27468C11.8321 4.54718 12.0912 4.73635 12.3904 4.78218L16.5321 5.38302C16.8821 5.43302 17.1746 5.67468 17.2904 6.00802C17.3996 6.34218 17.3054 6.70885 17.0487 6.94968L13.9321 9.89968Z" fill="#3F3533"/>
-                                    </svg>
-                                    <p className="text-[#3F3533] font-lato text-xl ml-2">4.9</p>
-                                </div>
-                            </div>
-                            <p className="font-dosis text-xl mt-5 text-[#023020]">Hydrasoothe Sunscreen Gel SPF 45 PA++++</p>
-                            <div
-                                className="w-full flex justify-center mt-14"
-                            >
-                                <button className="px-5 py-3 bg-[#8A9A5B] rounded-[15px] text-[#F4EBD0] font-bold text-2xl mx-auto">See Reviews</button>
-                            </div>
-                        </div>
-                        <div
-                            className="px-[30px] py-[50px] mix-blend-normal shadow-[0_0px_4px_3px_rgba(0,0,0,0.25)] rounded-[15px]"
-                        >
-                            <Image width={300} height={200} src="/azarine.png" />
-                            <div
-                                className="flex justify-between items-center mt-5"
-                            >
-                                <p className="font-dosis font-semibold text-[25px] text-[#023020]">AZARINE</p>
-                                <div
-                                    className="px-[14px] py-[7px] flex items-center bg-[#8A9A5B] rounded-full"
-                                >
-                                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.9321 9.89968C13.7162 10.1088 13.6171 10.4113 13.6662 10.708L14.4071 14.808C14.4696 15.1555 14.3229 15.5072 14.0321 15.708C13.7471 15.9163 13.3679 15.9413 13.0571 15.7747L9.36625 13.8497C9.23791 13.7813 9.09541 13.7447 8.94958 13.7405H8.72375C8.64541 13.7522 8.56875 13.7772 8.49875 13.8155L4.80708 15.7497C4.62458 15.8413 4.41791 15.8738 4.21541 15.8413C3.72208 15.748 3.39291 15.278 3.47375 14.7822L4.21541 10.6822C4.26458 10.383 4.16541 10.0788 3.94958 9.86635L0.940414 6.94968C0.688748 6.70552 0.601248 6.33885 0.716248 6.00802C0.827914 5.67802 1.11291 5.43718 1.45708 5.38302L5.59875 4.78218C5.91375 4.74968 6.19041 4.55802 6.33208 4.27468L8.15708 0.533016C8.20041 0.449683 8.25625 0.373016 8.32375 0.308016L8.39875 0.249683C8.43791 0.206349 8.48291 0.170516 8.53291 0.141349L8.62375 0.108016L8.76541 0.0496826H9.11625C9.42958 0.0821826 9.70541 0.269683 9.84958 0.549683L11.6987 4.27468C11.8321 4.54718 12.0912 4.73635 12.3904 4.78218L16.5321 5.38302C16.8821 5.43302 17.1746 5.67468 17.2904 6.00802C17.3996 6.34218 17.3054 6.70885 17.0487 6.94968L13.9321 9.89968Z" fill="#3F3533"/>
-                                    </svg>
-                                    <p className="text-[#3F3533] font-lato text-xl ml-2">4.9</p>
-                                </div>
-                            </div>
-                            <p className="font-dosis text-xl mt-5 text-[#023020]">Hydrasoothe Sunscreen Gel SPF 45 PA++++</p>
-                            <div
-                                className="w-full flex justify-center mt-14"
-                            >
-                                <button className="px-5 py-3 bg-[#8A9A5B] rounded-[15px] text-[#F4EBD0] font-bold text-2xl mx-auto">See Reviews</button>
-                            </div>
-                        </div>
-                    </div>
+                                    <div
+                                        className="w-full flex justify-around my-1"
+                                    >
+                                        {
+                                            bestProduct.slice(0+(i*2), 2+(i*2)).map((v,i) => {
+                                                return(
+                                                    <div
+                                                        className="px-[30px] py-[50px] mix-blend-normal shadow-[0_0px_4px_3px_rgba(0,0,0,0.25)] rounded-[15px] bg-[#F4EBD0]"
+                                                    >
+                                                        <Image width={300} height={200} src={v.productImg} />
+                                                        <div
+                                                            className="flex justify-between items-center mt-5"
+                                                        >
+                                                            <p className="font-dosis font-semibold text-[25px] text-[#023020]">{v.brand}</p>
+                                                            <div
+                                                                className="px-[14px] py-[7px] flex items-center bg-[#8A9A5B] rounded-full"
+                                                            >
+                                                                <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M13.9321 9.89968C13.7162 10.1088 13.6171 10.4113 13.6662 10.708L14.4071 14.808C14.4696 15.1555 14.3229 15.5072 14.0321 15.708C13.7471 15.9163 13.3679 15.9413 13.0571 15.7747L9.36625 13.8497C9.23791 13.7813 9.09541 13.7447 8.94958 13.7405H8.72375C8.64541 13.7522 8.56875 13.7772 8.49875 13.8155L4.80708 15.7497C4.62458 15.8413 4.41791 15.8738 4.21541 15.8413C3.72208 15.748 3.39291 15.278 3.47375 14.7822L4.21541 10.6822C4.26458 10.383 4.16541 10.0788 3.94958 9.86635L0.940414 6.94968C0.688748 6.70552 0.601248 6.33885 0.716248 6.00802C0.827914 5.67802 1.11291 5.43718 1.45708 5.38302L5.59875 4.78218C5.91375 4.74968 6.19041 4.55802 6.33208 4.27468L8.15708 0.533016C8.20041 0.449683 8.25625 0.373016 8.32375 0.308016L8.39875 0.249683C8.43791 0.206349 8.48291 0.170516 8.53291 0.141349L8.62375 0.108016L8.76541 0.0496826H9.11625C9.42958 0.0821826 9.70541 0.269683 9.84958 0.549683L11.6987 4.27468C11.8321 4.54718 12.0912 4.73635 12.3904 4.78218L16.5321 5.38302C16.8821 5.43302 17.1746 5.67468 17.2904 6.00802C17.3996 6.34218 17.3054 6.70885 17.0487 6.94968L13.9321 9.89968Z" fill="#3F3533"/>
+                                                                </svg>
+                                                                <p className="text-[#3F3533] font-lato text-xl ml-2">{v.averageRating}</p>
+                                                            </div>
+                                                        </div>
+                                                        <p className="font-dosis text-xl mt-5 text-[#023020]">{v.productName}</p>
+                                                        <div
+                                                            className="w-full flex justify-center mt-14"
+                                                        >
+                                                            <button onClick={() => Router.push("/product/"+v._id)} className="px-5 py-3 bg-[#8A9A5B] rounded-[15px] text-[#F4EBD0] font-bold text-2xl mx-auto">See Reviews</button>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                </div>  
+                            )
+                        })
+                    }                    
                 </div>
 
-                {/* <!--Carousel controls - prev item--> */}
                 <button
                     className="absolute bottom-0 left-0 top-0 z-[1] flex items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
                     type="button"
-                    data-te-target="#carouselBestProduct"
+                    data-te-target="#bestProductCarousel"
                     data-te-slide="prev">
                     <span className="inline-block h-8 w-8">
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,16 +93,15 @@ export default function BestProduct(){
                         </svg>
                     </span>
                     <span
-                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
                     >
                         Previous
                     </span>
                 </button>
-                {/* <!--Carousel controls - next item--> */}
                 <button
                     className="absolute bottom-0 right-0 top-0 z-[1] flex items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
                     type="button"
-                    data-te-target="#carouselBestProduct"
+                    data-te-target="#bestProductCarousel"
                     data-te-slide="next">
                     <span className="inline-block h-8 w-8">
                         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,12 +109,12 @@ export default function BestProduct(){
                         </svg>
                     </span>
                     <span
-                    className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+                        className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
                     >
                         Next
                     </span>
                 </button>
-                </div>
+            </div>
         </div>
     )
 }
