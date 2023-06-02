@@ -23,8 +23,8 @@ export default function Navbar(){
                 <a className="font-dosis text-[22px] ml-7" href="/#bestProducts">Explore</a>
                 {/* Mengecek apakah berada di page login/register */}
                 {(!href.includes("login") && !href.includes("register")) && status == "authenticated" &&  <Image alt="" onClick={() => setMenu(!menu)} className="ml-7 cursor-pointer" width={55} height={55} src="/profPic.png" />}
-                {href.includes("register") &&<a className="font-dosis text-[22px] ml-7" href="#">Login</a>}
-                {href.includes("login") &&<a className="font-dosis text-[22px] ml-7" href="#">Register</a>}
+                {!href.includes("login") && status == "unauthenticated" &&<a className="font-dosis text-[22px] ml-7" href="/login">Login</a>}
+                {href.includes("login") && status == "unauthenticated" && <a className="font-dosis text-[22px] ml-7" href="/register">Register</a>}
             </div>
             {   menu &&
                 <div
@@ -33,8 +33,8 @@ export default function Navbar(){
                     <a className="px-4 py-2 text-inherit border-b-2 border-[#023020] bg-[#F4EBD0] w-[200px] block" href="/profile">
                         Profile
                     </a>
-                    <a className="px-4 py-2 text-inherit border-b-2 border-[#023020] bg-[#F4EBD0] w-[200px] block" href="">
-                        Create Post
+                    <a className="px-4 py-2 text-inherit border-b-2 border-[#023020] bg-[#F4EBD0] w-[200px] block" href="/select-product" >
+                        Write Review
                     </a>
                     <a className="px-4 py-2 text-inherit bg-[#F4EBD0] w-[200px] block cursor-pointer" onClick={() => signOut()}>
                         Logout
