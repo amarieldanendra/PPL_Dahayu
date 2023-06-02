@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./node_modules/tw-elements/dist/js/**/*.js",
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,9 +16,12 @@ module.exports = {
       fontFamily: {
         dosis: "Dosis, sans-serif",
         hurricane: "'Hurricane', cursive",
-        lato: "Lato, sans-serif"
+        lato: "Lato, sans-serif",
+        inter: "Inter, sans-serif"
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tw-elements/dist/plugin')
+  ],
 }
