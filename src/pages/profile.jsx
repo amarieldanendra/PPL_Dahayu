@@ -17,7 +17,7 @@ export default function Profile(){
     const {data, status} = useSession()
     const {push} = useRouter()
     useEffect(() => {
-        if(status)  push("/login")
+        if(status == "unauthenticated")  push("/login")
         fetch("/api/profile")
             .then(res => res.json())
             .then(res => setReview(res))
