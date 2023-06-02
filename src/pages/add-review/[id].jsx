@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
+import { useSession } from "next-auth/react"
 export default function AddReview(){
     const product = {
         productName: "AZARINE",
@@ -11,6 +12,10 @@ export default function AddReview(){
     const [rating, setRating] = useState(0)
     const [review, setReview] = useState("")
     const [data, setData] = useState({})
+    const {status} = useSession()
+    useEffect(() => {
+        if(status == "unauthenticated")  push("/login")
+    },[])
     useEffect(() => {
         fetch("/api/products/"+query.id)
             .then(res => res.json())
