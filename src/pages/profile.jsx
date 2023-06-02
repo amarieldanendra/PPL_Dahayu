@@ -1,5 +1,6 @@
 import Router from "next/router"
 import { useState,useEffect } from "react"
+import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 export default function Profile(){
     const dummy = [
@@ -14,8 +15,9 @@ export default function Profile(){
     ]
     const [review, setReview] = useState([])
     const {data, status} = useSession()
-    console.log(data)
+    const {push} = useRouter()
     useEffect(() => {
+        if(status)  push("/login")
         fetch("/api/profile")
             .then(res => res.json())
             .then(res => setReview(res))

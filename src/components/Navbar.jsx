@@ -24,7 +24,7 @@ export default function Navbar(){
                 {/* Mengecek apakah berada di page login/register */}
                 {(!href.includes("login") && !href.includes("register")) && status == "authenticated" &&  <Image alt="" onClick={() => setMenu(!menu)} className="ml-7 cursor-pointer" width={55} height={55} src="/profPic.png" />}
                 {href.includes("register") &&<a className="font-dosis text-[22px] ml-7" href="#">Login</a>}
-                {href.includes("login   ") &&<a className="font-dosis text-[22px] ml-7" href="#">Register</a>}
+                {href.includes("login") &&<a className="font-dosis text-[22px] ml-7" href="#">Register</a>}
             </div>
             {   menu &&
                 <div

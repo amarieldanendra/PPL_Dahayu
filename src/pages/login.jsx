@@ -8,7 +8,6 @@ export default function Login(){
     const {status} = useSession()
     const {push} = useRouter()
     useEffect(() => {
-        console.log(status)
         if(status == "authenticated") push("/")
     },[status])
     const onSubmit = async (e) => {
