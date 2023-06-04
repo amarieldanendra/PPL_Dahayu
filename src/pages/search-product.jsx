@@ -9,7 +9,11 @@ export default function SearchProduct(){
             .then(res => res.json())
             .then(res => {
                 setProducts(res)
-                if(query.kategori) setDisplayedProducts(res.filter(v => v.kategori.toLowerCase() == query.kategori.toLocaleLowerCase()))
+                if(query.kategori != undefined) {
+                    setDisplayedProducts(res.filter(v => v.kategori.toLowerCase() == query.kategori.toLocaleLowerCase()))
+                }else{
+                    setDisplayedProducts(res)
+                }
             })
     },[])
     const onSearch = (e) => {

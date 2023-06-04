@@ -35,12 +35,21 @@ export default function Profile(){
                     <p className="font-dosis text-[#023020] text-3xl font-medium mt-2">{status == "authenticated" && data.user.username}</p>
                 </div>
             </div>
-            <button
-                className="p-3 mt-10 mx-auto text-xl bg-[#8A9A5B] text-[#3F3533] w-1/2 rounded-xl"
-                onClick={() => Router.push("/select-product")}
+            <div
+                className="flex justify-between"
             >
-                Submit Review
-            </button>
+                <button
+                    className="p-3 mt-10 mx-auto text-xl bg-[#8A9A5B] text-[#F4EBD0] w-[45%] rounded-xl"
+                >
+                    Edit Profile
+                </button>
+                <button
+                    className="p-3 mt-10 mx-auto text-xl bg-[#8A9A5B] text-[#F4EBD0] w-[45%] rounded-xl"
+                    onClick={() => Router.push("/select-product")}
+                >
+                    Write Review
+                </button>
+            </div>
             <div
                 className="flex flex-col w-5/6 mt-10 mx-auto"
             >
