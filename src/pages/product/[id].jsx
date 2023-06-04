@@ -86,7 +86,7 @@ export default function Product(){
                     <p
                         className="font-dosis text-black text-lg max-w-4xl mt-5"
                     >
-                        {data.ingredients}
+                        {data.description}
                     </p>
                 }
                 {
@@ -94,7 +94,7 @@ export default function Product(){
                     <p
                         className="font-dosis text-black text-lg max-w-4xl mt-5"
                     >
-                        {data.description}
+                        {data.ingredients}
                     </p>
                 }
                 {

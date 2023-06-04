@@ -20,14 +20,15 @@ export default function Login(){
             password: password,
             redirect: false
         })
-        if(res) push("/")
+        if(res.ok)  push("/")
+        if(!res.ok)  alert("Login invalid!!")
     }
     return(
         <main>
             {/* Form untuk login */}
             <div className="w-full py-10 bg-[#F4EBD0] flex justify-center items-center">
                 <div
-                    className="w-2/5 px-[46px] py-[23px] shadow-[0_0px_4px_3px_rgba(0,0,0,0.25)] rounded-[15px]"
+                    className="w-1/3 px-[30px] py-[10px] shadow-[0_0px_4px_3px_rgba(0,0,0,0.25)] rounded-[15px]"
                 >
                     <p className="font-dosis font-bold text-[#023020] text-[35px] text-center">Login</p>
                     <div

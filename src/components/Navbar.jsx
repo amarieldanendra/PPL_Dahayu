@@ -16,11 +16,11 @@ export default function Navbar(){
         <nav
             className="w-full h-[82px] bg-[#8A9A5B] px-[75px] flex items-center justify-between"
         >
-            <a href="/"><h1 className="font-hurricane text-[55px] m-0">Dahayu</h1></a>
+            <a href="/"><h1 className="font-hurricane text-[55px] m-0 text-[#F4EBD0]">Dahayu</h1></a>
             <div className="flex items-center">
                 <a className="font-dosis text-[22px]" href="/">Home</a>
                 <a className="font-dosis text-[22px] ml-7" href="/#categories">Categories</a>
-                <a className="font-dosis text-[22px] ml-7" href="/#bestProducts">Explore</a>
+                <a className="font-dosis text-[22px] ml-7" href="/select-product">Explore</a>
                 {/* Mengecek apakah berada di page login/register */}
                 {(!href.includes("login") && !href.includes("register")) && status == "authenticated" &&  <Image alt="" onClick={() => setMenu(!menu)} className="ml-7 cursor-pointer" width={55} height={55} src="/profPic.png" />}
                 {!href.includes("login") && status == "unauthenticated" &&<a className="font-dosis text-[22px] ml-7" href="/login">Login</a>}
