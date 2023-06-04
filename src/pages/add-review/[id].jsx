@@ -55,7 +55,8 @@ export default function AddReview(){
                 >
                     <p className="font-bold text-2xl">{data.brand}</p>
                     <p className="text-2xl mt-5">{data.productName}</p>
-                    <p className="text-2xl mt-5">{data.productSize} ml</p>
+                    <p className="text-2xl mt-5">{data.price}</p>
+                    <p className="text-2xl mt-5">{data.productSize}</p>
                 </div>
             </div>
             <div

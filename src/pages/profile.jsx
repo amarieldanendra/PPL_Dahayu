@@ -70,7 +70,8 @@ export default function Profile(){
                                         >
                                             <p className="font-bold text-2xl">{v.product.brand}</p>
                                             <p className="text-2xl mt-5">{v.product.productName}</p>
-                                            <p className="text-2xl mt-5">{v.product.productSize} ml</p>
+                                            <p className="text-2xl mt-5">{v.product.price}</p>
+                                            <p className="text-2xl mt-5">{v.product.productSize}</p>
                                         </div>
                                     </div>
                                     <p

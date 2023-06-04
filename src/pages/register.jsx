@@ -39,7 +39,7 @@ export default function Register(){
                 >
                     <p className="font-dosis font-bold text-[#023020] text-[35px] text-center">Register</p>
                     <div
-                        className="w-full mt-[70px] flex"
+                        className="w-full mt-[70px] flex justify-between"
                     >
                         <div
                             className="w-[49%] flex flex-col"
