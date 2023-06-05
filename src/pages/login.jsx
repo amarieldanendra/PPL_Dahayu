@@ -43,7 +43,7 @@ export default function Login(){
                         <label className="font-dosis text-2xl text-[#023020]" htmlFor="password">Password</label>
                         <input value={password} onChange={e => setPassword(e.currentTarget.value)} className="mt-2 bg-[#D9D9D9] h-[40px] rounded-[15px] text-[#023020] p-2" type="password" name="password" id="password" />
                     </div>
-                    <p className="font-dosis font-semibold text-[#023020] text-2xl mt-[40px]">Don’t have an account yet? <a className="text-[#8A9A5B] underline" href="#">Register</a></p>
+                    <p className="font-dosis font-semibold text-[#023020] text-2xl mt-[40px]">Don’t have an account yet? <a className="text-[#8A9A5B] underline" href="/register">Register</a></p>
                     <div
                         className="w-full flex justify-center mt-14"
                     >
