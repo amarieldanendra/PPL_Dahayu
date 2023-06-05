@@ -32,6 +32,20 @@ export default async function handler(req,res){
           $match: {
             averageRating: { $gte: 4 }
           }
+        },
+        {
+          $project: {
+            _id: 1,
+            name: 1,
+            productName: 1,
+            brand: 1,
+            productSize: 1,
+            price: 1,
+            productImg: 1,
+            averageRating: {
+              $round: [{ $avg: "$reviews.rating" }, 1]
+            }
+          }
         }
       ]).toArray()
 
