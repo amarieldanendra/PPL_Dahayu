@@ -22,7 +22,7 @@ export default function BestProduct(){
             className="w-full bg-[#F4EBD0] py-[43px] px-[75px]"
             id="bestProducts"
         >
-            <h2 className="font-dosis font-bold text-[35px] text-[#023020] text-center">Best Products of The Month</h2>
+            <h2 className="font-dosis font-bold text-[35px] text-[#023020] text-center">Best Products</h2>
             {/* Berikut merupakan carousel yang digunakan */}
 
             {   bestProduct.length > 0 &&

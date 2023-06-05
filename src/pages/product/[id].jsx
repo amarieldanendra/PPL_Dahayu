@@ -40,7 +40,7 @@ export default function Product(){
                 <div
                     className="flex"
                 >
-                    <img className="h-full w-auto" src={data.productImg} alt="" />
+                    <img className="w-[300px] aspect-square" src={data.productImg} alt="" />
                     <div
                         className="ml-20"
                     >
@@ -64,7 +64,7 @@ export default function Product(){
                         </div>
                         <button
                             className="mt-10 w-full py-4 text-center bg-[#8A9A5B] text-[#3F3533] rounded-2xl text-lg"
-                            onClick={() => push("/add-revie/"+query.id)}
+                            onClick={() => push("/add-review/"+query.id)}
                         >
                             Write Review
                         </button>
@@ -73,13 +73,13 @@ export default function Product(){
                 <div
                     className="mt-16"
                 >
-                    <button className="font-dosis text-lg text-[#023020] underline" onClick={() => setDescriptionState(0)}>
+                    <button className={`font-dosis text-lg text-[#023020] ${descriptionState == 0 && "underline"}`} onClick={() => setDescriptionState(0)}>
                         Description
                     </button>
-                    <button className="font-dosis text-lg text-[#023020] underline ml-14" onClick={() => setDescriptionState(1)}>
+                    <button className={`font-dosis text-lg text-[#023020] ${descriptionState == 1 && "underline"} ml-14`} onClick={() => setDescriptionState(1)}>
                         Ingredients
                     </button>
-                    <button className="font-dosis text-lg text-[#023020] underline ml-14" onClick={() => setDescriptionState(2)}>
+                    <button className={`font-dosis text-lg text-[#023020] ${descriptionState == 2 && "underline"} ml-14`} onClick={() => setDescriptionState(2)}>
                         Reviews
                     </button>
                 </div>
@@ -88,7 +88,7 @@ export default function Product(){
                     <p
                         className="font-dosis text-black text-lg max-w-4xl mt-5"
                     >
-                        {data.description}
+                        {data.description || data["description\n"]}
                     </p>
                 }
                 {

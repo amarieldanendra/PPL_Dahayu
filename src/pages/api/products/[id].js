@@ -51,7 +51,7 @@ export default async function handler(req,res){
     return res.json({
         ...products,
         reviews: reviews,
-        rating: jumlahAverage[0].avgRating,
-        count: jumlahAverage[0].countRating,
+        rating: jumlahAverage.length > 0 ? jumlahAverage[0].avgRating :  0,
+        count: jumlahAverage.length > 0 ? jumlahAverage[0].countRating : 0,
     })
 }
